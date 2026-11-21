@@ -20,6 +20,7 @@
 - [H2 CZCE 持久化](H2_CZCE_PERSISTENCE.md)
 - [H2 迁移](H2_MIGRATION.md)
 - [第三方打包](THIRD_PARTY_PACKAGING_FINAL.md)
+- [GitHub 上传准备](GITHUB_UPLOAD.md)
 
 ## 规格与模型
 
