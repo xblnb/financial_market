@@ -119,7 +119,7 @@ A 行存入 10,000
 - `./gradlew compileJava`：**BUILD SUCCESSFUL**
 - 真实 `runServer` + `/api/bank/selftest`：**success=true**
 - 前端 mock 渲染：银行卡/支付/流水正常
-- 最终 jar：`build/libs/financialmarket-1.0.0-full.jar`（22,855,395 bytes）。
+- 最终 jar：`build/libs/financialmarket-1.0.0-full.jar`（22,855,244 bytes）。
 
 ## 边界
 
