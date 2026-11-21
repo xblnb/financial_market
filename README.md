@@ -97,7 +97,7 @@ docs/assets/                   README/报告截图
 
 ```bash
 ./gradlew compileJava
-./gradlew spotlessApply   # 如果已配置格式化插件
+./gradlew jar
 ```
 
 提交前请不要把以下内容加入 Git：
