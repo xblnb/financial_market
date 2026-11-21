@@ -1,0 +1,28 @@
+modLoader = "javafml"
+loaderVersion = "[4,)"
+license = "MIT"
+
+[[mods]]
+modId = "financialmarket"
+version = "1.0.0"
+displayName = "Financial Market"
+authors = "xblnb"
+description = "A complete financial market simulation mod for Minecraft."
+logoFile = "financialmarket.png"
+
+[[dependencies.financialmarket]]
+modId = "neoforge"
+type = "required"
+versionRange = "[21.1.0,)"
+ordering = "NONE"
+side = "BOTH"
+
+# MCEF (Minecraft Chromium Embedded Framework) 2.1.6 is a required external dependency.
+# Distribution mods/ must include mcef-neoforge-2.1.6-1.21.1.jar.
+# MCEF downloads its native libraries on first launch; offline users must pre-stage them.
+[[dependencies.financialmarket]]
+modId = "mcef"
+type = "required"
+versionRange = "[2.1.6,)"
+ordering = "NONE"
+side = "BOTH"

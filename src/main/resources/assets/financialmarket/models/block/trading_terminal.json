@@ -1,0 +1,12 @@
+{
+  "parent": "block/cube",
+  "textures": {
+    "particle": "financialmarket:block/trading_terminal",
+    "down": "financialmarket:block/trading_terminal",
+    "up": "financialmarket:block/trading_terminal",
+    "north": "financialmarket:block/trading_terminal",
+    "east": "financialmarket:block/trading_terminal",
+    "south": "financialmarket:block/trading_terminal",
+    "west": "financialmarket:block/trading_terminal"
+  }
+}

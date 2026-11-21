@@ -1,0 +1,15 @@
+{
+  "item.financialmarket.financial_tablet": "金融平板",
+  "item.financialmarket.bank_tablet": "银行平板",
+  "item.financialmarket.government_tablet": "政府平板",
+  "item.financialmarket.market_block": "市场方块",
+  "item.financialmarket.delivery_block": "交割方块",
+  "item.financialmarket.exchange_screen": "交易所屏幕",
+  "item.financialmarket.trading_terminal": "交易终端",
+  "block.financialmarket.market_block": "市场方块",
+  "block.financialmarket.delivery_block": "交割方块",
+  "block.financialmarket.exchange_screen": "交易所屏幕",
+  "block.financialmarket.trading_terminal": "交易终端",
+  "subtitles.financialmarket.exchange_open_bell": "交易所开盘钟声",
+  "subtitles.financialmarket.exchange_close_bell": "交易所收盘钟声"
+}

@@ -1,0 +1,10 @@
+{
+  "exchange_open_bell": {
+    "subtitle": "subtitles.financialmarket.exchange_open_bell",
+    "sounds": [ "financialmarket:block/exchange_open_bell" ]
+  },
+  "exchange_close_bell": {
+    "subtitle": "subtitles.financialmarket.exchange_close_bell",
+    "sounds": [ "financialmarket:block/exchange_close_bell" ]
+  }
+}

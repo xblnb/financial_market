@@ -1,0 +1,57 @@
+# Gradle / build outputs
+.gradle/
+build/
+**/build/
+!gradle/wrapper/gradle-wrapper.jar
+
+# IDE
+.idea/
+*.iml
+*.ipr
+*.iws
+.vscode/
+.settings/
+.classpath
+.project
+
+# Local Minecraft runtimes, worlds, caches, logs
+run/
+runs/
+logs/
+backup/
+.verify/
+.data/
+.models/
+.agent-teams/
+crash-reports/
+mcef-cache/
+
+# Crash dumps / JVM diagnostics
+hs_err_pid*.log
+replay_pid*.log
+crash.log
+error.txt
+*.hprof
+javac.*.args
+
+# Python caches (tools/)
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+venv/
+
+# Local secrets / machine config
+.env
+.env.*
+*.pem
+*.key
+*.p12
+*.jks
+secrets.properties
+local.properties
+
+# OS cruft
+.DS_Store
+Thumbs.db
+desktop.ini

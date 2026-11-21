@@ -1,0 +1,192 @@
+plugins {
+    id 'java-library'
+    id 'net.neoforged.gradle.userdev' version '7.0.145'
+}
+
+version = '1.0.0'
+group = 'com.example.financialmarket'
+
+// Lean (default): external Kronos weights. Full: -PbundleModels=true bundles MIT fp16 weights.
+def bundleModels = providers.gradleProperty('bundleModels')
+        .map { it.toBoolean() }.orElse(true).get()
+def bundleJQuantLib = providers.gradleProperty('bundleJQuantLib')
+        .map { it.toBoolean() }.orElse(true).get()
+def bundleFinmath = providers.gradleProperty('bundleFinmath')
+        .map { it.toBoolean() }.orElse(true).get()
+def kronosBundleDir = file('third_party/models/kronos')
+
+base {
+    archivesName = 'financialmarket'
+}
+
+java.toolchain.languageVersion = JavaLanguageVersion.of(21)
+
+runs {
+    configureEach {
+        systemProperty 'forge.logging.markers', 'REGISTRIES'
+        systemProperty 'forge.logging.console.level', 'debug'
+        modSource project.sourceSets.main
+
+        jvmArguments.addAll(
+                '--add-opens', 'java.base/java.lang=ALL-UNNAMED',
+                '--add-exports', 'java.base/sun.security.util=ALL-UNNAMED',
+                '--add-exports', 'java.base/sun.security.x509=ALL-UNNAMED',
+                '--add-opens', 'java.base/java.util=ALL-UNNAMED'
+        )
+
+        // NeoForge 1.21.8 及以下：非 Minecraft 库只加 implementation 只进编译 classpath，
+        // 不会进入 dev 运行（runServer/runClient）的 mod 模块运行层 → 运行期 ClassNotFoundException。
+        // 必须在 runs 的 runtime 依赖里显式加上，mod 的 ModuleClassLoader 才能加载（官方 Non-Minecraft Dependencies 文档）。
+        dependencies {
+            runtime 'com.h2database:h2:2.2.224'
+        }
+    }
+
+    client {}
+    server { programArgument '--nogui' }
+    data {
+        programArguments.addAll '--mod', 'financialmarket', '--all',
+                '--output', file('src/generated/resources/').absolutePath,
+                '--existing', file('src/main/resources/').absolutePath
+    }
+}
+
+// NeoForge 1.21 mod 运行使用模块化类加载器（ModuleClassLoader），普通 implementation 库默认只进编译 classpath，
+// 不会进入 mod 运行可见层。用 jarJar 把 H2 打进 mod jar（并让 dev runServer 的 mod 层可加载）。
+jarJar {
+    // 启用并保留 jarJar 输出（NeoForge userdev 7.x 约定）
+}
+
+repositories {
+    mavenCentral()
+    // 添加 CurseMaven 仓库（用于 ApricityUI）
+    maven {
+        url "https://www.cursemaven.com"
+    }
+    // 保留本地 libs 文件夹（如果使用本地 JAR）
+    flatDir {
+        dirs 'libs'
+    }
+}
+
+configurations.all {
+    resolutionStrategy {
+        force 'org.ow2.asm:asm:9.7'
+        force 'org.ow2.asm:asm-analysis:9.7'
+        force 'org.ow2.asm:asm-commons:9.7'
+        force 'org.ow2.asm:asm-tree:9.7'
+        force 'org.ow2.asm:asm-util:9.7'
+    }
+}
+
+dependencies {
+    // NeoForge（排除旧版 ASM）
+    implementation('net.neoforged:neoforge:21.1.119') {
+        exclude group: 'org.ow2.asm', module: 'asm-analysis'
+        exclude group: 'org.ow2.asm', module: 'asm-tree'
+        exclude group: 'org.ow2.asm', module: 'asm'
+        exclude group: 'org.ow2.asm', module: 'asm-commons'
+        exclude group: 'org.ow2.asm', module: 'asm-util'
+    }
+
+    // 手动统一 ASM 版本
+    implementation 'org.ow2.asm:asm:9.7'
+    implementation 'org.ow2.asm:asm-tree:9.7'
+    implementation 'org.ow2.asm:asm-analysis:9.7'
+    implementation 'org.ow2.asm:asm-commons:9.7'
+    implementation 'org.ow2.asm:asm-util:9.7'
+
+    // 方式一：使用本地 JAR（推荐，如果你已有 1.2.0 的 JAR）
+    implementation files('libs/mcef-neoforge-2.1.6-1.21.1.jar')
+    //implementation files("libs/webgui-neoforge-1.6.2+mc1.21.1.jar")
+    //implementation 'org.java-websocket:Java-WebSocket:1.5.3'
+    implementation 'com.google.code.gson:gson:2.10.1'
+    // finmath-lib for option analytics; classes are unpacked into the full release jar.
+    compileOnly files('third_party/finmath/finmath-lib-6.1.10.jar')
+    compileOnly files('third_party/finmath/commons-math3-3.6.1.jar')
+
+    // 方式二：使用 CurseMaven 自动获取（取消注释下面一行，并替换 file_id）
+     //implementation "curse.maven:apricityui-1470115:8585929"  // 请将 6135503 替换为实际 1.2.0 的文件 ID
+
+    // H2 嵌入式数据库（JSON→H2 迁移，见 H2_MIGRATION.md）
+    // 正确坐标：com.h2database:h2:2.2.224（t5 文档写的 org.h2 是错误 groupId）。
+    // 本地缓存与 Maven Central 均可解析，离线也能从缓存取。
+    implementation 'com.h2database:h2:2.2.224'
+    // NeoForge 1.21 mod 运行使用模块化类加载器（ModuleClassLoader），普通 implementation 库
+    // 不会自动进入 mod 运行层 → 运行期 Class.forName("org.h2.Driver") 会 ClassNotFoundException。
+    // 用 jarJar 把 H2 打进 mod jar，使 dev 运行与发布后 mod 的 ModuleClassLoader 都能加载。
+    jarJar('com.h2database:h2:2.2.224') { jarJar.ranged(it, '[2.2.224,3.0.0)') }
+}
+
+if (bundleModels
+        && !file('third_party/models/kronos/kronos-mini.safetensors').exists()) {
+    throw new GradleException('bundleModels=true requires third_party/models/kronos/*.safetensors')
+}
+
+processResources {
+    if (!bundleModels) {
+        // Lean release: third-party weights stay external.
+        exclude 'assets/financialmarket/models/kronos/**'
+        exclude '**/*.safetensors'
+    } else {
+        // Full release: bundle MIT-licensed fp16 weights + NOTICE.
+        from(kronosBundleDir) {
+            include 'kronos-mini.safetensors', 'kronos-tokenizer.safetensors', 'NOTICE.txt'
+            into 'assets/financialmarket/models/kronos'
+        }
+    }
+    if (bundleJQuantLib) {
+        from('THIRD_PARTY_NOTICES.md') {
+            into 'META-INF'
+            rename { 'THIRD_PARTY_NOTICES.md' }
+        }
+    }
+    if (bundleModels) {
+        from('third_party/licenses/KRONOS-MIT.txt') { into 'META-INF/licenses' }
+    }
+    if (bundleJQuantLib) {
+        from('third_party/licenses/JQUANTLIB-BSD-2-CLAUSE.txt') { into 'META-INF/licenses' }
+    }
+    if (bundleFinmath) {
+        from('third_party/licenses/FINMATH-APACHE-2.0.txt') { into 'META-INF/licenses' }
+        from('third_party/licenses/COMMONS-MATH-APACHE-2.0.txt') { into 'META-INF/licenses' }
+    }
+}
+
+tasks.named('jar', Jar).configure {
+    if (bundleModels || bundleJQuantLib || bundleFinmath) {
+        archiveClassifier = 'full'
+    } else {
+        archiveClassifier = ''
+        exclude 'assets/financialmarket/models/kronos/**'
+        exclude '**/*.safetensors'
+    }
+    if (bundleJQuantLib) {
+        // Unpack JQuantLib classes into the mod jar root so the mod classloader can see them.
+        // BSD-2-Clause; see THIRD_PARTY_NOTICES.md.
+        from(zipTree(file('third_party/jquantlib/jquantlib-core-0.3.0.jar'))) {
+            exclude 'META-INF/MANIFEST.MF'
+            exclude 'META-INF/*.SF', 'META-INF/*.RSA', 'META-INF/*.DSA'
+            exclude 'module-info.class'
+        }
+    }
+    if (bundleFinmath) {
+        // finmath-lib + commons-math3 (Apache-2.0), unpacked for the mod classloader.
+        from(zipTree(file('third_party/finmath/finmath-lib-6.1.10.jar'))) {
+            exclude 'META-INF/MANIFEST.MF'
+            exclude 'META-INF/*.SF', 'META-INF/*.RSA', 'META-INF/*.DSA'
+            exclude 'module-info.class'
+        }
+        from(zipTree(file('third_party/finmath/commons-math3-3.6.1.jar'))) {
+            exclude 'META-INF/MANIFEST.MF'
+            exclude 'META-INF/*.SF', 'META-INF/*.RSA', 'META-INF/*.DSA'
+            exclude 'module-info.class'
+        }
+    }
+    manifest {
+        attributes['Specification-Title'] = 'Financial Market'
+        attributes['Specification-Version'] = project.version
+        attributes['Implementation-Title'] = project.name
+        attributes['Implementation-Version'] = project.version
+    }
+}

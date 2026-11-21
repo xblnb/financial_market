@@ -1,0 +1,15 @@
+{
+  "item.financialmarket.financial_tablet": "Financial Tablet",
+  "item.financialmarket.bank_tablet": "Bank Tablet",
+  "item.financialmarket.government_tablet": "Government Tablet",
+  "item.financialmarket.market_block": "Market Block",
+  "item.financialmarket.delivery_block": "Delivery Block",
+  "item.financialmarket.exchange_screen": "Exchange Screen",
+  "item.financialmarket.trading_terminal": "Trading Terminal",
+  "block.financialmarket.market_block": "Market Block",
+  "block.financialmarket.delivery_block": "Delivery Block",
+  "block.financialmarket.exchange_screen": "Exchange Screen",
+  "block.financialmarket.trading_terminal": "Trading Terminal",
+  "subtitles.financialmarket.exchange_open_bell": "Exchange open bell rings",
+  "subtitles.financialmarket.exchange_close_bell": "Exchange close bell rings"
+}

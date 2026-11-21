@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>World Macro | Financial Market</title>
+  <style>
+    body { font-family: system-ui, -apple-system, "Segoe UI", sans-serif; margin: 24px; background:#0f1115; color:#e8e8e8; }
+    h1 { font-size:20px; margin:0 0 4px; }
+    .sub { color:#8b93a1; font-size:12px; margin-bottom:18px; }
+    .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:10px; margin-bottom:20px; }
+    .card { background:#171a21; border:1px solid #262b36; border-radius:8px; padding:10px 12px; }
+    .card .k { color:#8b93a1; font-size:11px; }
+    .card .v { font-size:20px; font-variant-numeric:tabular-nums; margin-top:2px; }
+    table { border-collapse:collapse; width:100%; margin-bottom:22px; font-size:13px; }
+    th, td { text-align:right; padding:6px 8px; border-bottom:1px solid #262b36; }
+    th:first-child, td:first-child { text-align:left; }
+    th { color:#8b93a1; font-weight:500; }
+    .pos { color:#ff5a5f; } .neg { color:#22c55e; }
+    a { color:#6ea8fe; }
+  </style>
+</head>
+<body>
+  <h1>World Macro</h1>
+  <div class="sub">玩家/世界行为 → 经济事件 → 公司/板块/商品 → 股市 · <a href="/">返回交易页</a></div>
+  <div class="grid" id="top"></div>
+  <h2 style="font-size:15px">板块</h2>
+  <table id="sectors"><thead><tr>
+    <th>板块</th><th>产出指数</th><th>产出</th><th>capex</th><th>R&amp;D</th><th>风险</th><th>毛利</th><th>事件</th>
+  </tr></thead><tbody></tbody></table>
+  <h2 style="font-size:15px">公司</h2>
+  <table id="companies"><thead><tr>
+    <th>公司</th><th>板块</th><th>产出</th><th>资本</th><th>capex</th><th>R&amp;D</th><th>风险</th><th>技术</th><th>现金流</th><th>surprise</th>
+  </tr></thead><tbody></tbody></table>
+  <script>
+    const n = v => (v === undefined || v === null) ? '-' : Number(v).toFixed(3);
+    const esc = s => String(s ?? '').replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+    function row(cells) { return '<tr>' + cells.map(c => '<td>' + c + '</td>').join('') + '</tr>'; }
+    async function refresh() {
+      try {
+        const r = await fetch('/api/worldmacro', {cache:'no-store'});
+        const d = await r.json();
+        document.getElementById('top').innerHTML = [
+          ['生产指数', n(d.productionIndex)], ['PPI', n(d.ppi)], ['CPI', n(d.cpi)],
+          ['产能利用', n(d.capacityUtil)], ['事件风险', n(d.eventRisk)], ['novelty', n(d.novelty)],
+          ['事件数', d.eventsProcessed ?? 0], ['未映射', d.unmappedResources ?? 0]
+        ].map(([k,v]) => `<div class="card"><div class="k">${k}</div><div class="v">${v}</div></div>`).join('');
+        document.querySelector('#sectors tbody').innerHTML = (d.sectors || []).map(s =>
+          row([esc(s.id), n(s.outputIndex), n(s.output), n(s.capex), n(s.rnd), n(s.risk), n(s.margin), s.events])
+        ).join('');
+        document.querySelector('#companies tbody').innerHTML = (d.companies || []).slice(0, 100).map(c =>
+          row([esc(c.id), esc(c.sector), n(c.production), n(c.capital), n(c.capex), n(c.rnd), n(c.risk), n(c.techTier), n(c.cashFlow), n(c.lastSurprise)])
+        ).join('');
+      } catch (e) {
+        document.getElementById('top').innerHTML = '<div class="card"><div class="k">连接失败</div><div class="v">—</div></div>';
+      }
+    }
+    refresh();
+    setInterval(refresh, 5000);
+  </script>
+</body>
+</html>

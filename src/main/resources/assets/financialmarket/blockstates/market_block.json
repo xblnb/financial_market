@@ -1,0 +1,5 @@
+{
+  "variants": {
+    "": { "model": "financialmarket:block/market_block" }
+  }
+}

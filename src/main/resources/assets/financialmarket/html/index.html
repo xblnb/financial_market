@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#0b0e13">
+  <title>Kronos Markets · 交易终端</title>
+  <link rel="stylesheet" href="/app.css">
+</head>
+<body>
+<div class="app-shell">
+  <aside class="sidebar" id="sidebar">
+    <div class="brand">
+      <div class="brand-mark">K</div>
+      <div>
+        <div class="brand-name">Kronos</div>
+        <div class="brand-sub">MARKETS</div>
+      </div>
+    </div>
+    <nav class="nav" id="nav">
+      <a class="nav-item active" data-route="dashboard" href="#/dashboard"><span class="ico">◫</span><span>总览</span></a>
+      <a class="nav-item" data-route="stocks" href="#/stocks"><span class="ico">▤</span><span>股票</span></a>
+      <a class="nav-item" data-route="bank" href="#/bank"><span class="ico">▭</span><span>银行卡 · 支付</span></a>
+  <a class="nav-item" data-route="commodities" href="#/commodities"><span class="ico">▦</span><span>商品市场</span></a>
+      <a class="nav-item" data-route="futures" href="#/futures"><span class="ico">◈</span><span>期货 · CZCE</span></a>
+      <a class="nav-item" data-route="options" href="#/options"><span class="ico">◇</span><span>期权 · SABR</span></a>
+      <div class="nav-sep"></div>
+      <a class="nav-item" data-route="portfolio" href="#/portfolio"><span class="ico">▣</span><span>持仓</span></a>
+      <a class="nav-item" data-route="orders" href="#/orders"><span class="ico">≡</span><span>订单</span></a>
+      <div class="nav-sep"></div>
+      <a class="nav-item" data-route="macro" href="#/macro"><span class="ico">◎</span><span>宏观</span></a>
+      <a class="nav-item" data-route="companies" href="#/companies"><span class="ico">▥</span><span>公司</span></a>
+    </nav>
+    <div class="sidebar-foot"><div class="server-dot" id="serverDot"></div><span id="serverText">连接中</span></div>
+  </aside>
+
+  <div class="main">
+    <header class="topbar">
+      <button class="icon-btn mobile-only" id="menuBtn" aria-label="菜单">☰</button>
+      <div class="search"><span class="search-ico">⌕</span><input id="globalSearch" placeholder="搜索代码 / 名称 / 合约" autocomplete="off"></div>
+      <div class="top-account">
+        <div class="top-account-meta"><div class="top-label">总资产</div><div class="top-value" id="topEquity">—</div></div>
+        <div class="avatar" id="avatar">P</div>
+      </div>
+      <button class="icon-btn" id="refreshBtn" title="刷新">↻</button>
+    </header>
+
+    <main id="app" class="content">
+      <div class="loading"><div class="spinner"></div><div>正在连接行情…</div></div>
+    </main>
+  </div>
+</div>
+
+<div class="mobile-nav" id="mobileNav">
+  <a data-route="dashboard" href="#/dashboard">总览</a>
+  <a data-route="stocks" href="#/stocks">股票</a>
+  <a data-route="bank" href="#/bank">银行</a>
+  <a data-route="commodities" href="#/commodities">商品</a>
+  <a data-route="futures" href="#/futures">期货</a>
+  <a data-route="options" href="#/options">期权</a>
+  <a data-route="portfolio" href="#/portfolio">持仓</a>
+</div>
+
+<div id="toast" class="toast"></div>
+<div id="modal" class="modal-backdrop hidden" aria-hidden="true">
+  <div class="modal">
+    <div class="modal-head"><strong id="modalTitle">提示</strong><button class="icon-btn" id="modalClose">✕</button></div>
+    <div id="modalBody"></div>
+  </div>
+</div>
+
+<script src="/echarts.min.js"></script>
+<script src="/app.js"></script>
+</body>
+</html>

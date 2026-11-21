@@ -1,0 +1,30 @@
+Kronos K-line foundation model - bundled weights
+================================================
+
+Model family : Kronos: A Foundation Model for the Language of Financial Markets
+               (AAAI-40, arXiv:2508.02739)
+Upstream     : https://github.com/shiyu-coder/Kronos
+Weights      : https://huggingface.co/NeoQuasar/Kronos-mini
+               https://huggingface.co/NeoQuasar/Kronos-Tokenizer-base
+Licence      : MIT (both the code and the published checkpoints)
+Copyright    : (c) the Kronos authors (NeoQuasar / Tsinghua University)
+
+Files shipped in this directory are *converted* copies of the published fp32
+checkpoints: every matrix (ndim >= 2) is stored as fp16, while 1-D tensors
+(norms, biases, rope frequencies) stay fp32.  The conversion is reproducible:
+
+    python tools/kronos/convert_weights.py <raw_checkpoints_dir> \
+        src/main/resources/assets/financialmarket/models/kronos/
+
+The Java inference stack (com.example.financialmarket.engine.ml) re-implements
+the tokenizer and the decoder; no PyTorch or native runtime is required.
+
+Provenance (SHA-256)
+--------------------
+raw  mini.safetensors             a7d5f37e2e9fbd9891f7d7d4f72574512dd1f704fee14223e0a8cd0fbf54197c   16,440,776 B
+raw  tokenizer.safetensors        59d85f6af76a2c3b8240ea06cb21db4213b4eeca053f246b23e29cf832fc6bee   15,842,368 B
+fp16 kronos-mini.safetensors      25f4b9a85c8b36ff41e7c7ae17b56e9f6ad8bddca40999b9f6236b68717622c3    8,244,666 B
+fp16 kronos-tokenizer.safetensors 0c00711ab3a05fdc931958548e3edab52e50ea6a8f57fe9baf2b2303f5274c29    7,946,293 B
+
+Redistribution of the MIT-licensed weights is permitted as long as this
+copyright and permission notice are retained.

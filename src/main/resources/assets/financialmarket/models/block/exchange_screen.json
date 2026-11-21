@@ -1,0 +1,12 @@
+{
+  "parent": "block/cube",
+  "textures": {
+    "particle": "financialmarket:block/exchange_screen",
+    "down": "financialmarket:block/exchange_screen",
+    "up": "financialmarket:block/exchange_screen",
+    "north": "financialmarket:block/exchange_screen",
+    "east": "financialmarket:block/exchange_screen",
+    "south": "financialmarket:block/exchange_screen",
+    "west": "financialmarket:block/exchange_screen"
+  }
+}
