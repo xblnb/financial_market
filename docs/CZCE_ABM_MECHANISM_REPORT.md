@@ -95,12 +95,12 @@ limit_days, forced_liq, max_board_days
 
 ## 图
 
-- 机制事件图：[czce_limit_events.png](.verify/czce_abm_2025/charts/czce_limit_events.png)
-- 面板统计：[czce_panel_stats.png](.verify/czce_abm_2025/charts/czce_panel_stats.png)
-- MA0：[abm_seed1_dashboard.png](.verify/czce_abm_2025/MA0/out/charts/abm_seed1_dashboard.png)
-- AP0：[abm_seed1_dashboard.png](.verify/czce_abm_2025/AP0/out/charts/abm_seed1_dashboard.png)
-- SR0：[abm_seed1_dashboard.png](.verify/czce_abm_2025/SR0/out/charts/abm_seed1_dashboard.png)
-- CZCE 指数：[abm_seed1_dashboard.png](.verify/czce_abm_2025/CZCE_INDEX/out/charts/abm_seed1_dashboard.png)
+- 机制事件图：[czce_limit_events.png](assets/czce_abm_2025/charts/czce_limit_events.png)
+- 面板统计：[czce_panel_stats.png](assets/czce_abm_2025/charts/czce_panel_stats.png)
+- MA0：[abm_seed1_dashboard.png](assets/czce_abm_2025/MA0/out/charts/abm_seed1_dashboard.png)
+- AP0：[abm_seed1_dashboard.png](assets/czce_abm_2025/AP0/out/charts/abm_seed1_dashboard.png)
+- SR0：[abm_seed1_dashboard.png](assets/czce_abm_2025/SR0/out/charts/abm_seed1_dashboard.png)
+- CZCE 指数：[abm_seed1_dashboard.png](assets/czce_abm_2025/CZCE_INDEX/out/charts/abm_seed1_dashboard.png)
 
 ## 数据
 

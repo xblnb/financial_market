@@ -32,7 +32,7 @@
 - 分时 / 日K / 月K 切换
 - 数据直接来自 `/api/kline` 的 `macdDif/macdDea/macdHist/rsi/kdjK/kdjD/kdjJ/bollUp/bollMid/bollLow`
 
-![专业图表](.verify/frontend_prochart_final.png)
+![专业图表](assets/frontend_prochart_final.png)
 
 ## 设计
 

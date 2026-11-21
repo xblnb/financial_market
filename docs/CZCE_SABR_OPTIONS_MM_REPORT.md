@@ -10,7 +10,7 @@
 - 对冲：期货每日 delta 对冲 + ATM 60 天 call 做 vega 对冲（单位上限 ±20）。
 - 60 天结果：四个标的全部正 PnL，但这是**做市价差+库存+对冲**的结果，不是方向性 alpha。
 
-![SABR 面板](.verify/options_sabr_2025/charts/sabr_panel.png)
+![SABR 面板](assets/options_sabr_2025/charts/sabr_panel.png)
 
 ## 结果
 
@@ -25,11 +25,11 @@
 
 ## 甲醇 MA0
 
-![MA0 SABR](.verify/options_sabr_2025/charts/MA0_sabr.png)
+![MA0 SABR](assets/options_sabr_2025/charts/MA0_sabr.png)
 
 ## 苹果 AP0
 
-![AP0 SABR](.verify/options_sabr_2025/charts/AP0_sabr.png)
+![AP0 SABR](assets/options_sabr_2025/charts/AP0_sabr.png)
 
 ## SABR 实现
 

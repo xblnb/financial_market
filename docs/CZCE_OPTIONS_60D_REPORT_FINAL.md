@@ -17,15 +17,15 @@
 
 > PnL 单位是**每 1 单位期权的价格点**，未乘合约乘数、未计手数和保证金占用；不是账户收益率。
 
-![期权面板](.verify/options_2025/charts/option_panel.png)
+![期权面板](assets/options_2025/charts/option_panel.png)
 
 ## 甲醇 MA0
 
-![MA0 期权](.verify/options_2025/charts/MA0_options.png)
+![MA0 期权](assets/options_2025/charts/MA0_options.png)
 
 ## 苹果 AP0
 
-![AP0 期权](.verify/options_2025/charts/AP0_options.png)
+![AP0 期权](assets/options_2025/charts/AP0_options.png)
 
 ## 定价/希腊字母
 

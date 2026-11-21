@@ -89,11 +89,11 @@
 
 ## 图
 
-- 面板对比：[czce_panel_stats.png](.verify/czce_abm_2025/charts/czce_panel_stats.png)
-- 甲醇 MA0：[abm_seed1_dashboard.png](.verify/czce_abm_2025/MA0/out/charts/abm_seed1_dashboard.png)
-- 苹果 AP0：[abm_seed1_dashboard.png](.verify/czce_abm_2025/AP0/out/charts/abm_seed1_dashboard.png)
-- 白糖 SR0：[abm_seed1_dashboard.png](.verify/czce_abm_2025/SR0/out/charts/abm_seed1_dashboard.png)
-- CZCE 指数：[abm_seed1_dashboard.png](.verify/czce_abm_2025/CZCE_INDEX/out/charts/abm_seed1_dashboard.png)
+- 面板对比：[czce_panel_stats.png](assets/czce_abm_2025/charts/czce_panel_stats.png)
+- 甲醇 MA0：[abm_seed1_dashboard.png](assets/czce_abm_2025/MA0/out/charts/abm_seed1_dashboard.png)
+- 苹果 AP0：[abm_seed1_dashboard.png](assets/czce_abm_2025/AP0/out/charts/abm_seed1_dashboard.png)
+- 白糖 SR0：[abm_seed1_dashboard.png](assets/czce_abm_2025/SR0/out/charts/abm_seed1_dashboard.png)
+- CZCE 指数：[abm_seed1_dashboard.png](assets/czce_abm_2025/CZCE_INDEX/out/charts/abm_seed1_dashboard.png)
 - 真实 MA/AP/SR/指数：各目录 `out/charts/real_2025_*.png`
 
 ## 数据

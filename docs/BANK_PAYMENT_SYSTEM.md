@@ -82,7 +82,7 @@ GET  /api/bank/selftest              纯服务端自检（不碰 live 账户）
 - 转账/商户付款表单；
 - 最近 50 笔流水。
 
-![银行卡与支付](.verify/frontend_bank_payment.png)
+![银行卡与支付](assets/frontend_bank_payment.png)
 
 ## 服务端自检
 

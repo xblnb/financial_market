@@ -115,7 +115,7 @@ MarketEngine 每 20 tick：
 
 前端宏观页实际渲染：
 
-![跨资产宏观](.verify/frontend_crossmacro.png)
+![跨资产宏观](assets/frontend_crossmacro.png)
 
 ## 边界
 

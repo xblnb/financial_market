@@ -124,7 +124,7 @@
 - **核心思想**:宏观层输出 `riskAppetite/creditImpulse/inflationPressure/volatilityRegime` 等**条件向量**到 `MarketState`;微观层把这些作为输入特征,不做跨层强制覆盖。
 - **现实中如何实现**:宏观不确定/情绪影响流动性(§2.2);FX 订单流受宏观新闻驱动(§1.2)。
 - **对 MC 借鉴点/可实现性**:将 `MacroStateEngine` 的连续量提升为桥接参数,微观层(agent/订单簿/成本)只读消费。**可实现性:高**。
-- **来源**:[MacroStateEngine 现状(src/.../engine/MacroStateEngine.java)](src/main/java/com/example/financialmarket/engine/MacroStateEngine.java)、[Macro uncertainty & liquidity](https://www.sciencedirect.com/science/article/abs/pii/S1544612325011225)
+- **来源**:[MacroStateEngine 现状(src/.../engine/MacroStateEngine.java)](../src/main/java/com/example/financialmarket/engine/MacroStateEngine.java)、[Macro uncertainty & liquidity](https://www.sciencedirect.com/science/article/abs/pii/S1544612325011225)
 
 ### 模式 P3 —— **宏观冲击注入订单流(Event Injection)**
 - **核心思想**:政策突变/危机时,宏观层向微观层注入**短时冲击脉冲**,让订单流在"公告后"集中反应(跳变、闪崩、成交激增),而非平滑 GBM。

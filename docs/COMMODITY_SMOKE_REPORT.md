@@ -53,9 +53,9 @@ GET /api/commodities
 
 ## 60 天样本路径
 
-![商品 60 天路径](.verify/commodity_smoke_paths.png)
+![商品 60 天路径](assets/commodity_smoke_paths.png)
 
-CSV：[commodity_smoke_paths.csv](.verify/commodity_smoke_paths.csv)
+CSV：[commodity_smoke_paths.csv](assets/commodity_smoke_paths.csv)
 
 样本：
 
