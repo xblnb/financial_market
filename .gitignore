@@ -25,6 +25,8 @@ backup/
 .agent-teams/
 crash-reports/
 mcef-cache/
+*.log
+*.log.gz
 
 # Crash dumps / JVM diagnostics
 hs_err_pid*.log
