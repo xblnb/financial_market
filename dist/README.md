@@ -3,7 +3,7 @@
 ## 文件
 
 ```text
-financialmarket-1.0.0-full.jar   22,864,893 bytes
+financialmarket-1.0.0-full.jar   22,864,924 bytes
 SHA256SUMS.txt                    SHA-256 checksum
 ```
 
@@ -11,7 +11,7 @@ SHA256SUMS.txt                    SHA-256 checksum
 
 ```bash
 sha256sum -c SHA256SUMS.txt
-# 4d17a54c61eac9e8e0e427220391a9f5792e1040e67af408dddf13bed515def6
+# f2110ac044b068f72320c1e5bd03273f40ce28387053d1adce2c1b929406be29
 ```
 
 ## 安装

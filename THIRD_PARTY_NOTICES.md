@@ -16,7 +16,8 @@ JQuantLib: https://github.com/dv01-inc/jquantlib
 finmath-lib: https://github.com/finmath/finmath-lib  
 Apache Commons Math: https://commons.apache.org/proper/commons-math/  
 fsynth: https://github.com/welcra/fsynth  
-MCEF: https://github.com/mc-wiki/mcef
+MCEF: https://github.com/mc-wiki/mcef  
+MCEF source offer: `third_party/MCEF_SOURCE_OFFER.md`
 
 See `assets/financialmarket/models/kronos/NOTICE.txt` (all releases) for the Kronos MIT notice.
 The full jar also contains this notice at `META-INF/THIRD_PARTY_NOTICES.md` and the

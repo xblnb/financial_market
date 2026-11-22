@@ -9,7 +9,7 @@
 产物：
 
 ```text
-build/libs/financialmarket-1.0.0-full.jar   22,864,893 bytes
+build/libs/financialmarket-1.0.0-full.jar   22,864,924 bytes
 ```
 
 内容：
