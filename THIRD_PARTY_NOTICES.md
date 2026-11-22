@@ -8,7 +8,7 @@ The default **full** release jar bundles the third-party assets below. The optio
 | JQuantLib core 0.3.0 | DCF discounting in `JQuantLibBridge` | BSD-2-Clause | Full jar: classes unpacked at jar root + this notice. Lean: external |
 | finmath-lib 6.1.10 | CZCE option Black-76 / Greeks | Apache-2.0 | Full jar: classes unpacked at jar root + Apache license |
 | Apache Commons Math 3.6.1 | finmath normal distribution dependency | Apache-2.0 | Full jar: classes unpacked at jar root + Apache license |
-| MCEF 2.1.6 | Required external Chromium GUI dependency | See upstream MCEF license | `libs/mcef-neoforge-2.1.6-1.21.1.jar` for reproducible dev builds; distribution users install the MCEF mod separately |
+| MCEF 2.1.6 | Required external Chromium GUI dependency | LGPL-2.1 | Not unpacked into the mod jar. `libs/mcef-neoforge-2.1.6-1.21.1.jar` is a reproducible build dependency; players install the MCEF mod separately. License text: `third_party/licenses/MCEF-LGPL-2.1.txt` |
 | fsynth | conceptual inspiration for `FsynthFundamentals` | no code bundled | independent Java implementation |
 
 Kronos upstream: https://github.com/shiyu-coder/Kronos  

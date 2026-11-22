@@ -26,6 +26,13 @@ full jar; see `THIRD_PARTY_NOTICES.md` for licenses.
   or `config/financialmarket/models/kronos/`.
 - If missing, `TablPriceModel` falls back to the handwritten GBM/GARCH path.
 
+## MCEF
+
+- Path: `libs/mcef-neoforge-2.1.6-1.21.1.jar`
+- License: LGPL-2.1 (`third_party/licenses/MCEF-LGPL-2.1.txt`)
+- Required external runtime dependency; not unpacked into the mod jar.
+- Players/operators install the MCEF mod separately in `mods/`.
+
 ## JQuantLib
 
 - Path: `third_party/jquantlib/jquantlib-core-0.3.0.jar`

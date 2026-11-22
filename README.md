@@ -25,7 +25,7 @@
 | MCEF | 2.1.6+（外部必需） |
 | Gradle | 8.9（wrapper 已包含） |
 
-MCEF 是外部依赖，分发包 `mods/` 必须包含 `mcef-neoforge-2.1.6-1.21.1.jar`。MCEF 首次运行会下载原生库；离线环境需预置 `mods/mcef-libraries/`。
+MCEF 是外部依赖（LGPL-2.1），分发包 `mods/` 必须包含 `mcef-neoforge-2.1.6-1.21.1.jar`；本模组 jar 不解包 MCEF 类。MCEF 首次运行会下载原生库；离线环境需预置 `mods/mcef-libraries/`。
 
 ## 构建
 
@@ -39,6 +39,15 @@ export JAVA_HOME=/path/to/jdk-21
 ```text
 build/libs/financialmarket-1.0.0-full.jar
 ```
+
+仓库同时提供已构建的发布包：
+
+```text
+dist/financialmarket-1.0.0-full.jar
+dist/SHA256SUMS.txt
+```
+
+发布包安装说明见 [dist/README.md](dist/README.md)。
 
 `build.gradle` 默认启用完整发布：
 

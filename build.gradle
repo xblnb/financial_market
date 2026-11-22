@@ -151,6 +151,9 @@ processResources {
         from('third_party/licenses/FINMATH-APACHE-2.0.txt') { into 'META-INF/licenses' }
         from('third_party/licenses/COMMONS-MATH-APACHE-2.0.txt') { into 'META-INF/licenses' }
     }
+    // MCEF is an external LGPL-2.1 runtime dependency; its license ships with the notices
+    // even though MCEF classes are not unpacked into the mod jar.
+    from('third_party/licenses/MCEF-LGPL-2.1.txt') { into 'META-INF/licenses' }
 }
 
 tasks.named('jar', Jar).configure {

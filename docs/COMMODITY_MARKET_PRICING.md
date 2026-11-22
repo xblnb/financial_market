@@ -94,7 +94,7 @@ volatility' = 0.92·volatility + 0.08·|return| + 0.004·|shock|
   - 钻石无季节性；
   - 同日同商品的冲击完全确定。
 - `./gradlew compileJava`：**BUILD SUCCESSFUL**
-- 最终 jar：`build/libs/financialmarket-1.0.0-full.jar`（22,855,244 bytes）。
+- 最终 jar：`build/libs/financialmarket-1.0.0-full.jar`（22,864,893 bytes）。
 
 ## 边界
 

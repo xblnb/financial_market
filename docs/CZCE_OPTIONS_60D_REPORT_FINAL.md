@@ -76,7 +76,7 @@ GET /api/options?code=MA2505
   - `org.apache.commons.math3` 类
   - `META-INF/licenses/FINMATH-APACHE-2.0.txt`
   - `META-INF/licenses/COMMONS-MATH-APACHE-2.0.txt`
-- 完整 jar：`build/libs/financialmarket-1.0.0-full.jar`（22,855,244 bytes）。
+- 完整 jar：`build/libs/financialmarket-1.0.0-full.jar`（22,864,893 bytes）。
 
 ## 验证
 

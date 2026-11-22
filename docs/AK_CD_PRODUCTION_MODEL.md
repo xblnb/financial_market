@@ -128,7 +128,7 @@ cd_optimal_capital, cd_capital_gap
   - CD 产出、TFP 反推、MPK/MPL、最优资本、资本缺口、要素份额；
   - AK 聚合。
 - `./gradlew compileJava`：**BUILD SUCCESSFUL**
-- 最终 jar：`build/libs/financialmarket-1.0.0-full.jar`（22,855,244 bytes）。
+- 最终 jar：`build/libs/financialmarket-1.0.0-full.jar`（22,864,893 bytes）。
 
 ## 边界
 
