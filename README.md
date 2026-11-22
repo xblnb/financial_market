@@ -49,6 +49,8 @@ dist/SHA256SUMS.txt
 
 发布包安装说明见 [dist/README.md](dist/README.md)。
 
+GitHub Release：[v1.0.0](https://github.com/xblnb/financial_market/releases/tag/v1.0.0)
+
 `build.gradle` 默认启用完整发布：
 
 - `-PbundleModels=true`：打包 Kronos fp16 权重；
